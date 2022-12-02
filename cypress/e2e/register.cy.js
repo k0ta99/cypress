@@ -1,6 +1,8 @@
 /// <reference types = "Cypress"/>
 // Arrow function () => {}
 
+const Locators = require("../fixtures/locators.json")
+
 describe("registration test", () => {
     function makeId(length) {
         var result = "";
@@ -18,13 +20,13 @@ describe("registration test", () => {
 
     it("register with valid credentials", () => {
         cy.visit("/register")
-        cy.get("#first-name").type("Marko")
-        cy.get("#last-name").type("Marko")
-        cy.get("#email").type(email)
-        cy.get("#password").type("test1234")
-        cy.get("#password-confirmation").type("test1234")
-        cy.get('input[type="checkbox"]').click()
-        cy.get("button").click()
+        cy.get(Locators.Register.firstName).type("Marko")
+        cy.get(Locators.Register.lastName).type("Marko")
+        cy.get(Locators.Common.emailInput).type(email)
+        cy.get(Locators.Common.passwordInput).type("test1234")
+        cy.get(Locators.Register.passwordConfirmationInput).type("test1234")
+        cy.get(Locators.Register.checkboxField).click()
+        cy.get(Locators.Common.submitButton).click()
         cy.url().should("not.include", "/register")
         
         
