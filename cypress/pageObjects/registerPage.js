@@ -26,6 +26,15 @@ class RegisterPage {
     get submitButton() {
       return cy.get("button");
     }
+
+    get registerHeading(){
+      return cy.get("h1")
+    }
+
+    get alertMessage(){
+      return cy.get(".alert");
+    }
+  
   
     register(firstName, lastName, email, password) {
       this.firstNameInput.type(firstName);

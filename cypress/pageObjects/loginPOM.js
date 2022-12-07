@@ -20,7 +20,11 @@ class LoginPage {
     }
 
     get loginHeading(){
-      return cy.get("h1");
+      return cy.get("h1")
+    }
+
+    galleryImage(){
+      return cy.get("img");
     }
   
     login(email, password) {
