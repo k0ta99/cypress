@@ -43,6 +43,10 @@ class AllGalleries{
         return this.singleGallery.find("small");
     }
 
+    get galleryImage(){
+        return cy.get("img");
+    }
+
     search(searchTerm){
         this.searchInput.type(searchTerm);
         this.filterButton.click();
